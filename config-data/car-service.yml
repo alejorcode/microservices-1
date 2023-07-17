@@ -3,13 +3,13 @@ server:
 
 spring:
   application:
-    name: car-service
+    name: car-service 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/car_micro
     username: root
     password: alejo12
- 
+
   jpa:
     database-platform: org.hibernate.dialect.MySQLDialect
     hibernate:
