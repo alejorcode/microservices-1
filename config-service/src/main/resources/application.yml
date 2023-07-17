@@ -7,7 +7,7 @@ spring:
     config:
       server:
         git:
-          default-label: multiple-instances
+          default-label: gateway
           uri: https://github.com/alejorcode/microservices-1
           search-paths: config-data
           clone-on-start: true
