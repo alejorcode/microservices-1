@@ -9,9 +9,18 @@ spring:
     url: jdbc:mysql://localhost:3306/user_micro
     username: root
     password: alejo12
-    
+
   jpa:
     database-platform: org.hibernate.dialect.MySQLDialect
     hibernate:
       ddl-auto: update
     show-sql: true
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      default-zone: http://localhost:8761/eureka
+    instance:
+      hostname: localhost

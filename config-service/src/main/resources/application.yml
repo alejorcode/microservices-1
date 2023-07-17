@@ -7,6 +7,7 @@ spring:
     config:
       server:
         git:
-          default-label: config-server
+          default-label: eureka
           uri: https://github.com/alejorcode/microservices-1
           search-paths: config-data
+          clone-on-start: true
