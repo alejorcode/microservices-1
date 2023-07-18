@@ -9,7 +9,6 @@ spring:
         git:
           default-label: zipkin
           uri: https://github.com/alejorcode/microservices-1
-          search-paths: config-data
           clone-on-start: true
           force-pull: false
           refresh-rate: 15
