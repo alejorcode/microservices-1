@@ -29,3 +29,8 @@ spring:
           uri: lb://motorcycle-service
           predicates:
             - Path=/motorcycle/**
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
