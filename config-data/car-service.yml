@@ -1,6 +1,8 @@
 server:
   port: 8081
 spring:
+  application:
+    name: car-service
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/car_micro
