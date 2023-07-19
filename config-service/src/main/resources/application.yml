@@ -9,6 +9,6 @@ spring:
         git:
           default-label: zipkin
           uri: https://github.com/alejorcode/microservices-1
-          search-paths: classpath:/configurations
+          search-paths: config-data
 
      
