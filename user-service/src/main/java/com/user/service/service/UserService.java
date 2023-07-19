@@ -18,7 +18,7 @@ import com.user.service.repository.UserRepository;
 @Service
 public class UserService {
 	
-	// RestTemplate
+	    // RestTemplate
 		@Autowired
 		private RestTemplate restTemplate;
 
@@ -47,13 +47,13 @@ public class UserService {
 
 		// RestTemplate
 		public List<Car> getCars(int userId) {
-			List<Car> cars = restTemplate.getForObject("http://localhost:8081/car/user/" + userId, List.class);
+			List<Car> cars = restTemplate.getForObject("http://car-service/car/user/" + userId, List.class);
 			return cars;
 		}
 
 		// RestTemplate
 		public List<Motorcycle> getMotorcycle(int userId) {
-			List<Motorcycle> motorcycles = restTemplate.getForObject("http://localhost:8082/motorcycle/user/" + userId,
+			List<Motorcycle> motorcycles = restTemplate.getForObject("http://motorcycle-service/motorcycle/user/" + userId,
 					List.class);
 			return motorcycles;
 		}
