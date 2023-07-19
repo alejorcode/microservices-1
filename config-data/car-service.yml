@@ -2,7 +2,7 @@ server:
   port: 8081
 spring:
   application:
-    name: car-service
+    name: car-service 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/car_micro
@@ -14,10 +14,10 @@ spring:
       ddl-auto: update
     show-sql: true
 eureka:
+  instance:
+    hostname: localhost
   client:
     fetch-registry: true
     register-with-eureka: true
     service-url:
       default-zone: http://localhost:8761/eureka
-    instance:
-      hostname: localhost
