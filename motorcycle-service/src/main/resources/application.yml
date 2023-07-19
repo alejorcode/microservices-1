@@ -1,5 +1,0 @@
-spring:
-  application:
-    name: motorcycle-service
-  config:
-    import: optional:configserver:http://localhost:8083
