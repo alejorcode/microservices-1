@@ -1,8 +1,6 @@
 server:
   port: 8083
 spring:
-  application:
-    name: config-service
   cloud:
     config:
       server:
@@ -10,4 +8,5 @@ spring:
           default-label: eureka
           uri: https://github.com/alejorcode/microservices-1
           search-paths: config-data
-          clone-on-start: true
+  application:
+    name: config-service
