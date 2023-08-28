@@ -7,10 +7,13 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      default-zone: http://localhost:8761/eureka
+      default-zone: http://eureka:password@localhost:8761/eureka
 spring:
   cloud:
     gateway:
+      default-filters:
+        - SaveSession
+        - TokenRelay
       discovery:
         locator:
           enabled: true
@@ -27,3 +30,27 @@ spring:
           uri: lb://motorcycle-service
           predicates:
             - Path=/motorcycle/**
+        - id: eureka-service
+          uri: http://localhost:8761
+          predicates:
+            - Path=/eureka/web
+          filters:
+            - SetPath=/
+        - id: eureka-service-static
+          uri: http://localhost:8761
+          predicates:
+            - Path=/eureka/**
+
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8180/realms/microservices-realm
+            scope: openid
+            client-id: microservice-client
+            client-secret: jX3jx9vsEpu2D6BP0mTOsZcit5th0hb0
+            authorization-grant-type: authorization_code
+            redirect-uri: {baseUrl}/login/oauth2/code/keycloak
+
+        
