@@ -8,6 +8,8 @@ eureka:
     register-with-eureka: true
     service-url:
       default-zone: http://eureka:password@localhost:8761/eureka
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
 spring:
   cloud:
     gateway:
@@ -44,13 +46,14 @@ spring:
   security:
     oauth2:
       client:
-        provider:
-          keycloak:
-            issuer-uri: http://localhost:8180/realms/microservices-realm
-            scope: openid
+        registration:
+          gateway:
+            provider: my-provider
             client-id: microservice-client
             client-secret: jX3jx9vsEpu2D6BP0mTOsZcit5th0hb0
             authorization-grant-type: authorization_code
-            redirect-uri: {baseUrl}/login/oauth2/code/keycloak
-
-        
+            redirect-uri: "{baseUrl}/login/oauth2/code/keycloak"
+            scope: openid
+        provider:
+          my-provider:
+            issuer-uri: http://localhost:8180/realms/microservices-realm
